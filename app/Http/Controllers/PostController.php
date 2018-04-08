@@ -50,12 +50,13 @@ class PostController extends Controller
         ]);
         Post::create([
         'title' => request('title'),
+        'user_id' => auth()->id(),
         'categories_id' => request('categories_id'),
         'content' => request('content'),
         'slug' => str_slug(request('title'))
         ]);
 
-        return redirect()->route('post.index')->withInfo('Entry has been successfully made');; 
+        return redirect()->route('post.index')->withInfo('Entry has been successfully made');
     }
 
     /**
@@ -95,7 +96,7 @@ class PostController extends Controller
             'content' => request('content'),
             'categories_id' => request('categories_id')
         ]);
-        return redirect()->route('post.index')->withInfo('Entry has been successfully changed');
+        return redirect()->route('post.index')->withInfo('Entry has been successfully updated');
     }
 
     /**
@@ -108,6 +109,6 @@ class PostController extends Controller
     {
         $posts->delete();
 
-        return redirect()->route('post.index')->withDanger('Entry deleted');
+        return redirect()->route('post.index')->withInfo('Entry deleted');
     }
 }

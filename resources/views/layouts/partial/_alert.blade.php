@@ -3,12 +3,12 @@
     $(".alert").fadeTo(200, 0).slideUp(200, function(){
         $(this).remove(); 
     });
-}, 1500);
+}, 2000);
 </script>
 @if (session('success'))
-<div class="row justify-content-start">
-<div class="col-3">
-    <div class="alert alert-success alert-dismissible" id="success-alert">
+<div class="row">
+<div class="col-12">
+    <div class="alert alert-success alert-dismissible" role="alert">
             {{--  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>  --}}
         <b>{{ session('success')}}</b>
     </div>
@@ -17,9 +17,9 @@
 @endif
 
 @if (session('info'))
-<div class="row justify-content-start">
-<div class="col-3">
-    <div class="alert alert-info alert-dismissible" data-auto-dismiss="1500" role="alert">
+<div class="row">
+<div class="col-12">
+    <div class="alert alert-info alert-dismissible" role="alert">
            <strong>{{ session('info')}}</strong>
             {{--  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="outline: none !important;box-shadow: none;">
                 <span aria-hidden="true" style="position:relative;bottom:7px;">&times;</span>
@@ -30,8 +30,8 @@
 @endif
 
 @if (session('danger'))
-<div class="row justify-content-start">
-<div class="col-3">
+<div class="row">
+<div class="col-12">
         <div class="alert alert-danger alert-dismissible" role="alert">
                 <strong>{{ session('danger')}}</strong>
                  {{--  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="outline: none !important;box-shadow: none;">

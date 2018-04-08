@@ -17,12 +17,17 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('welcome');
-
 });
+
 Auth::routes();
 Route::middleware('auth')->group(function(){
     Route::group(['middleware'=>'revalidate'],function(){
+        Route::get('/profile', function () {
+            return view('layouts.profile')->with('user',$user);
+        
+        });
         Route::get('/home', 'PostController@index')->name('post.homeindex');
+        // Route::get('/user/{users}','UserController@edit')->name('user.profile');
         Route::get('/post/create','PostController@create')->name('post.create');
         Route::get('/post','PostController@index')->name('post.index');
         Route::post('/post/create','PostController@store')->name('post.store');
@@ -31,5 +36,6 @@ Route::middleware('auth')->group(function(){
         Route::post('/post/{posts}/edit','PostController@edit')->name('post.toedit');
         Route::patch('/post/{posts}/edit','PostController@update')->name('post.update');
         Route::delete('/post/{posts}/delete','PostController@destroy')->name('post.destroy');
+        Route::post('/post/{posts}/comment','PostCommentController@store')->name('post.comment.store');
     });
 });

@@ -2,17 +2,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                    <div class="panel panel-info">
-                        <div class="panel-heading"><strong>New Entry</strong></div>
+            <div class="col-md-8 offset-md-2">
+                    <div class="panel panel-info" style="border-color:black">
+                        <div class="panel-heading" style="border-color:black"><font size=5> NEW ENTRY </font></div>
                         <div class="panel-body">
                             <form class="" action="{{ route('post.store')}}" method="post">
                                     {{ csrf_field() }}
                                     <div class="form-group has-feedback{{ $errors->has('title') ? 'has-error' : '' }}">
-                                    <label for="">Title</label>
-                                    <input type="text" class="form-control" name="title" placeholder="Movie Title" value="{{ old('title') }}">
+                                    <label for="">I want to talk about :</label>
+                                    <input type="text" class="form-control" name="title" placeholder="The thing you want to talk about" value="{{ old('title') }}">
                                         @if($errors->has('title'))
                                             <span style="color:red" class="help-block">
                                             <p>{{ $errors->first('title') }}</p>
@@ -21,17 +21,17 @@
                                 </div>
                         
                                     <div class="form-group">
-                                    <label for="genre">Genre</label>
-                                    <select name="categories_id" id="" class="form-control"  width="150" height="30" style="width: 150px;height: 30px" >
-                                        @foreach ($categories as $categories)
-                                        <option value="{{ $categories->id }}"> {{ $categories->name }}</option>
-                                        @endforeach
-                                    </select>
+                                        <label for="genre">Choose your topic :</label>
+                                        <select name="categories_id" id="" class="form-control"  width="150" height="30" style="width: 150px;height: 30px" >
+                                            @foreach ($categories as $categories)
+                                            <option value="{{ $categories->id }}"> {{ $categories->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                         
                                     <div class="form-group  has-feedback{{ $errors->has('content') ? 'has-error' : '' }}">
-                                    <label for="Content">Review</label>
-                                    <textarea name="content" rows="4" class="form-control" placeholder="Tell me something about this">{{ old('content') }}</textarea>
+                                    <label for="Content">What do you think about this?</label>
+                                    <textarea name="content" rows="10" class="form-control" placeholder="Go on, open your mind.">{{ old('content') }}</textarea>
                                     @if($errors->has('content'))
                                         <span style="color:red" class="help-block">
                                             <p>{{ $errors->first('content') }}</p>
@@ -39,16 +39,14 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-success btn-block" value="Save" >
-                                       
-                                
-                                </div>
+                                    <input type="submit" class="btn btn-primary btn-block" style="border-color:black;" value="POST" >
+                                  </div>
                                 </form>
                         </div>
                     </div>
             </div>
         </div>
-        
+
        
     </div>
 @endsection
