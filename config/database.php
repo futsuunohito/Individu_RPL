@@ -1,11 +1,14 @@
 <?php
 
+<<<<<<< HEAD
 $url = parse_url(getenv("DATABASE_URL"));
 $host = $url["host"]??null;
 $username = $url["user"]??null;
 $password = $url["pass"]??null;
 $database = substr($url["path"], 1)??null;
 
+=======
+>>>>>>> 2eca23d5ee6b0d5809d8ddc2595f99da8ac073b9
 return [
 
     /*
@@ -19,7 +22,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'default' => 'pgsql',
+=======
+    'default' => 'mysql',
+>>>>>>> 2eca23d5ee6b0d5809d8ddc2595f99da8ac073b9
 
     /*
     |--------------------------------------------------------------------------
@@ -47,11 +54,19 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
+<<<<<<< HEAD
             'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'dblaravel'),
             'username' => env('DB_USERNAME', 'ventusreal'),
             'password' => env('DB_PASSWORD', 'faldis2499'),
+=======
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+>>>>>>> 2eca23d5ee6b0d5809d8ddc2595f99da8ac073b9
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -62,6 +77,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
+<<<<<<< HEAD
             'host' => $host,
             'database' => $database,
             'username' => $username,
@@ -69,6 +85,17 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
+=======
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+>>>>>>> 2eca23d5ee6b0d5809d8ddc2595f99da8ac073b9
         ],
 
         'sqlsrv' => [
